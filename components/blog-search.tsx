@@ -79,7 +79,7 @@ export function BlogSearch() {
         </div>
       </header>
 
-      <main className="pb-16 pt-2 space-y-4">
+      <main className="pb-16 pt-2 space-y-4 px-3">
         {selectedPost ? (
           <SinglePostView post={selectedPost} onClose={closePost} />
         ) : (
