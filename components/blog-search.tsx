@@ -58,28 +58,30 @@ export function BlogSearch() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen font-sans">
-      <header className="flex items-center justify-between p-4 border-b border-gray-800">
-        <div className="flex items-center">
-          <Image
-            src="/favicon.ico"
-            alt="The Front Page"
-            width={40}
-            height={40}
-            className="rounded-full mr-3"
-          />
-          <div>
-            <h1 className="font-bold">The Front Page</h1>
-            <p className="text-sm text-gray-400">1K followers</p>
+      <div className="fixed top-0 w-full bg-gray-900">
+        <header className=" flex items-center justify-between px-4 py-2 border-b border-gray-800">
+          <div className="flex items-center">
+            <Image
+              src="/favicon.ico"
+              alt="The Front Page"
+              width={40}
+              height={40}
+              className="rounded-full mr-3"
+            />
+            <div>
+              <h1 className="font-bold">The Front Page</h1>
+              <p className="text-sm text-gray-400">1K followers</p>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <LinkIcon className="w-6 h-6" />
-          <Bell className="w-6 h-6" />
-          <MoreHorizontal className="w-6 h-6" />
-        </div>
-      </header>
+          <div className="flex items-center space-x-4">
+            <LinkIcon className="w-6 h-6" />
+            <Bell className="w-6 h-6" />
+            <MoreHorizontal className="w-6 h-6" />
+          </div>
+        </header>
+      </div>
 
-      <main className="pb-16 pt-2 space-y-4 px-3">
+      <main className="pb-20 pt-20 space-y-4 px-3">
         {selectedPost ? (
           <SinglePostView post={selectedPost} onClose={closePost} />
         ) : (
