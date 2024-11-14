@@ -29,7 +29,7 @@ export function BlogSearch() {
     {
       id: 1,
       title: "Abu Sayed killed during quota protest",
-      content: "বাংলায় পড়তে: https://www.instagram.com/p/C9fCFiivTLD/",
+      content: "content of Abu Sayed killed during quota protest",
       image:
         "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       reactions: 30,
@@ -38,7 +38,7 @@ export function BlogSearch() {
     {
       id: 2,
       title: "Student of Begum Rokeya University, ",
-      content: "Abu Sayed • 1d",
+      content: "Content of Student of Begum Rokeya University,",
       image:
         "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
@@ -79,7 +79,7 @@ export function BlogSearch() {
         </div>
       </header>
 
-      <main className="p-4 space-y-4">
+      <main className="pb-16 pt-2 space-y-4">
         {selectedPost ? (
           <SinglePostView post={selectedPost} onClose={closePost} />
         ) : (
@@ -91,31 +91,30 @@ export function BlogSearch() {
                 onClick={() => openPost(post)}
               >
                 <div className="p-4">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto rounded-lg mb-4"
-                  />
-                  <div className="bg-white text-blue-900 p-2 rounded mb-4">
-                    <p className="text-lg font-bold">{post.title}</p>
+                  <div className="flex justify-center">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={500}
+                      height={500}
+                      className="rounded-lg mb-4 h-[300px] w-[300px]"
+                    />
                   </div>
+
                   <div className="flex justify-between items-center">
-                    <p className="text-sm text-blue-400">{post.content}</p>
+                    <p className="text-sm text-white">{post.content}</p>
                     {post.time && (
                       <span className="text-gray-400">{post.time}</span>
                     )}
                   </div>
                 </div>
-                {post.reactions && (
-                  <div className="bg-gray-700 p-2 flex items-center justify-between">
-                    <div className="flex items-center"></div>
-                    <Button variant="ghost" size="icon">
-                      <ArrowLeft className="w-5 h-5 transform rotate-180" />
-                    </Button>
-                  </div>
-                )}
+
+                <div className="bg-gray-700 p-2 flex items-center justify-between">
+                  <div className="flex items-center"></div>
+                  <Button variant="ghost" size="icon">
+                    <ArrowLeft className="w-5 h-5 transform rotate-180" />
+                  </Button>
+                </div>
               </div>
             ))}
             {filteredPosts.length === 0 && (
@@ -128,9 +127,6 @@ export function BlogSearch() {
       </main>
 
       <footer className="fixed bottom-0 left-0 right-0 bg-gray-800 flex items-center justify-between p-4">
-        <Button variant="ghost" size="icon">
-          <Search className="w-6 h-6" />
-        </Button>
         <Input
           type="search"
           placeholder="Search blog posts..."
@@ -139,12 +135,7 @@ export function BlogSearch() {
           className="flex-grow mx-2 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
         />
         <Button variant="ghost" size="icon">
-          <Image
-            src="/placeholder.svg"
-            alt="Microphone"
-            width={24}
-            height={24}
-          />
+          <Search className="w-6 h-6" />
         </Button>
       </footer>
     </div>
@@ -164,13 +155,16 @@ function SinglePostView({
         <Button variant="ghost" size="icon" onClick={onClose} className="mb-4">
           <ArrowLeft className="w-6 h-6" />
         </Button>
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={600}
-          height={400}
-          className="w-full h-auto rounded-lg mb-4"
-        />
+        <div className="flex justify-center">
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={600}
+            height={400}
+            className="w-[300px] h-[300px] rounded-lg mb-4"
+          />
+        </div>
+
         <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
         <p className="text-lg mb-4">{post.content}</p>
         <div className="flex justify-between items-center">
