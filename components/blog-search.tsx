@@ -42,6 +42,13 @@ export function BlogSearch() {
       image:
         "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
+    {
+      id: 3,
+      title: "Student of Begum Rokeya University, ",
+      content: "Content of Student of Begum Rokeya University,",
+      image:
+        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
   ];
 
   const filteredPosts = blogPosts.filter((post) =>
@@ -81,11 +88,11 @@ export function BlogSearch() {
         </header>
       </div>
 
-      <main className="pb-20 pt-20 space-y-4 px-3">
+      <main className=" pt-20 space-y-4 px-3">
         {selectedPost ? (
           <SinglePostView post={selectedPost} onClose={closePost} />
         ) : (
-          <div className="float-right">
+          <div className="float-right pb-20">
             {filteredPosts.map((post) => (
               <div key={post.id} className="flex">
                 <div
@@ -104,7 +111,9 @@ export function BlogSearch() {
                     </div>
 
                     <div className="flex justify-between items-center p-1">
-                      <p className="text-sm text-white">{post.content}</p>
+                      <p className="text-sm text-white">
+                        {post.content} (...More)
+                      </p>
                       {post.time && (
                         <span className="text-gray-400">{post.time}</span>
                       )}
