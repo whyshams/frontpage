@@ -85,38 +85,40 @@ export function BlogSearch() {
         {selectedPost ? (
           <SinglePostView post={selectedPost} onClose={closePost} />
         ) : (
-          <>
+          <div className="float-right">
             {filteredPosts.map((post) => (
-              <div
-                key={post.id}
-                className="bg-gray-800 rounded-lg overflow-hidden cursor-pointer"
-                onClick={() => openPost(post)}
-              >
-                <div className="p-4">
-                  <div className="flex justify-center">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      width={500}
-                      height={500}
-                      className="rounded-lg mb-4 h-[300px] w-[300px]"
-                    />
-                  </div>
+              <div className="flex">
+                <div
+                  key={post.id}
+                  className="bg-gray-800 my-4 rounded-lg w-[300px] shadow-xl overflow-hidden cursor-pointer"
+                  onClick={() => openPost(post)}
+                >
+                  <div className="">
+                    <div className="flex justify-center">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        width={500}
+                        height={500}
+                        className="rounded-lg mb-4 h-[300px] w-[300px]"
+                      />
+                    </div>
 
-                  <div className="flex justify-between items-center">
-                    <p className="text-sm text-white">{post.content}</p>
-                    {post.time && (
-                      <span className="text-gray-400">{post.time}</span>
-                    )}
+                    <div className="flex justify-between items-center p-1">
+                      <p className="text-sm text-white">{post.content}</p>
+                      {post.time && (
+                        <span className="text-gray-400">{post.time}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-
-                <div className="bg-gray-700 p-2 flex items-center justify-between">
-                  <div className="flex items-center"></div>
-                  <Button variant="ghost" size="icon">
-                    <ArrowLeft className="w-5 h-5 transform rotate-180" />
-                  </Button>
-                </div>
+                <Image
+                  width={100}
+                  height={100}
+                  alt="Something"
+                  src={"/favicon.ico"}
+                  className="h-[50px] w-[50px] m-4"
+                />
               </div>
             ))}
             {filteredPosts.length === 0 && (
@@ -124,7 +126,7 @@ export function BlogSearch() {
                 No matching blog posts found.
               </p>
             )}
-          </>
+          </div>
         )}
       </main>
 
