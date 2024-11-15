@@ -87,9 +87,8 @@ export function BlogSearch() {
         ) : (
           <div className="float-right">
             {filteredPosts.map((post) => (
-              <div className="flex">
+              <div key={post.id} className="flex">
                 <div
-                  key={post.id}
                   className="bg-gray-800 my-4 rounded-lg w-[300px] shadow-xl overflow-hidden cursor-pointer"
                   onClick={() => openPost(post)}
                 >
