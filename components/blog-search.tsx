@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, ImageIcon, Search } from "lucide-react";
+import {
+  ArrowLeft,
+  ImageIcon,
+  Search,
+  ChevronDown,
+  Menu,
+  Share2,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -95,6 +102,27 @@ export function BlogSearch() {
     .padStart(2, "0")}`;
   return (
     <div className=" text-white min-h-screen font-sans">
+      <div className="fixed top-0 w-full bg-gray-900 text-white">
+        <header className="fixed top-0 w-full bg-[#343541] border-b border-gray-600/20 z-50">
+          <div className="flex items-center justify-between px-4 py-3">
+            <Button variant="ghost" size="icon">
+              <Menu className="w-6 h-6" />
+            </Button>
+            <div className="flex items-center gap-2">
+              <h1
+                className="text-lg font-semibold"
+                onClick={() => setShowStarted(true)}
+              >
+                The Front Page
+              </h1>
+              <ChevronDown className="w-4 h-4" />
+            </div>
+            <Button variant="ghost" size="icon">
+              <Share2 className="w-6 h-6" />
+            </Button>
+          </div>
+        </header>
+      </div>
       <main className=" pt-20 space-y-4 px-3">
         {showStarted ? (
           <div className="grid gap-4 max-w-2xl mx-auto">
@@ -136,7 +164,7 @@ export function BlogSearch() {
                 <div className="flex justify-end items-end">
                   <div className=" min-w-44">
                     <div className="bg-[#005C4B] p-2 rounded m-2 flex justify-between">
-                      <div>Top 5 News</div>
+                      <div>{searchTerm ? searchTerm : "Top 5 News"}</div>
 
                       <span className="text-[10px] text-[#7eb6ac] whitespace-nowrap pt-3">
                         {currentTime}
@@ -186,17 +214,19 @@ export function BlogSearch() {
                     </p>
                   )}
                 </div>
-                <div className="flex justify-end items-end">
-                  <div className=" min-w-44">
-                    <div className="bg-[#005C4B] p-2 rounded m-2 flex justify-between">
-                      <div>Read More....</div>
+                {!searchTerm ? (
+                  <div className="flex justify-end items-end">
+                    <div className=" min-w-44">
+                      <div className="bg-[#005C4B] p-2 rounded m-2 flex justify-between">
+                        <div>Read More....</div>
 
-                      <span className="text-[10px] text-[#7eb6ac] whitespace-nowrap pt-3">
-                        {currentTime}
-                      </span>
+                        <span className="text-[10px] text-[#7eb6ac] whitespace-nowrap pt-3">
+                          {currentTime}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             )}
           </div>
@@ -208,7 +238,10 @@ export function BlogSearch() {
             type="text"
             placeholder="Message ChatGPT..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setShowStarted(false);
+            }}
             className="flex-grow bg-[#40414F] border-0 focus-visible:ring-0 text-white placeholder-gray-400"
           />
           <Button variant="ghost" size="icon" className="shrink-0">
