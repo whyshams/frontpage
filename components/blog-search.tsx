@@ -88,7 +88,6 @@ export function BlogSearch() {
   const now = new Date();
   const hours = now.getHours(); // Get the current hour (0-23)
   const minutes = now.getMinutes(); // Get the current minute (0-59)
-  const seconds = now.getSeconds(); // Get the current second (0-59)
 
   // Format the time as HH:MM:SS
   const currentTime = `${hours.toString().padStart(2, "0")}:${minutes
