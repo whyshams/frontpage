@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import {
+  ArrowLeft,
+  Bell,
+  ChevronDown,
+  ImageIcon,
+  LinkIcon,
+  Menu,
+  MessageSquare,
+  MoreHorizontal,
+  PenSquare,
+  Search,
+  Share2,
+  Sparkles,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,8 +41,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#343541]`}
       >
+        <div className="fixed top-0 w-full bg-gray-900 text-white">
+          <header className="fixed top-0 w-full bg-[#343541] border-b border-gray-600/20 z-50">
+            <div className="flex items-center justify-between px-4 py-3">
+              <Button variant="ghost" size="icon">
+                <Menu className="w-6 h-6" />
+              </Button>
+              <div className="flex items-center gap-2">
+                <h1 className="text-lg font-semibold">The Front Page</h1>
+                <ChevronDown className="w-4 h-4" />
+              </div>
+              <Button variant="ghost" size="icon">
+                <Share2 className="w-6 h-6" />
+              </Button>
+            </div>
+          </header>
+        </div>
         {children}
       </body>
     </html>
