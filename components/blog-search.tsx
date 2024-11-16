@@ -2,20 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import {
-  ArrowLeft,
-  Bell,
-  ChevronDown,
-  ImageIcon,
-  LinkIcon,
-  Menu,
-  MessageSquare,
-  MoreHorizontal,
-  PenSquare,
-  Search,
-  Share2,
-  Sparkles,
-} from "lucide-react";
+import { ArrowLeft, ImageIcon, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
