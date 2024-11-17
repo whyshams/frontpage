@@ -163,7 +163,7 @@ export function BlogSearch() {
               <div className="flex flex-col mb-24">
                 <div className="flex justify-end items-end">
                   <div className=" min-w-44">
-                    <div className="bg-[#005C4B] p-2 rounded m-2 flex justify-between">
+                    <div className="bg-[#005C4B] p-2 shadow-lg rounded m-2 flex justify-between">
                       <div>{searchTerm ? searchTerm : "Top 5 News"}</div>
 
                       <span className="text-[10px] text-[#7eb6ac] whitespace-nowrap pt-3">
@@ -178,7 +178,7 @@ export function BlogSearch() {
                     {filteredPosts.map((post) => (
                       <div key={post.id} className="flex">
                         <div
-                          className="bg-[#1F2C33] my-4 rounded-lg w-[300px] shadow-xl overflow-hidden cursor-pointer"
+                          className="bg-[#1F2C33] my-4 rounded-lg w-[300px] shadow-lg overflow-hidden cursor-pointer"
                           onClick={() => openPost(post)}
                         >
                           <div className="">
@@ -215,15 +215,17 @@ export function BlogSearch() {
                   )}
                 </div>
                 {!searchTerm ? (
-                  <div className="flex justify-end items-end">
-                    <div className=" min-w-44">
-                      <div className="bg-[#005C4B] p-2 rounded m-2 flex justify-between">
-                        <div>Read More....</div>
+                  <div className="flex justify-end  flex-wrap">
+                    <div className="bg-[#005C4B] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
+                      <div>Top 10</div>
+                    </div>
 
-                        <span className="text-[10px] text-[#7eb6ac] whitespace-nowrap pt-3">
-                          {currentTime}
-                        </span>
-                      </div>
+                    <div className="bg-[#005C4B] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
+                      <div>Top 20</div>
+                    </div>
+
+                    <div className="bg-[#005C4B] px-4 py-2 rounded m-2 shadow-lg flex justify-between">
+                      <div>All</div>
                     </div>
                   </div>
                 ) : null}
