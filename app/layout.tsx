@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { useState } from "react";
+import Image from "next/image";
+import {
+  ArrowLeft,
+  ImageIcon,
+  Search,
+  ChevronDown,
+  Menu,
+  Share2,
+} from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

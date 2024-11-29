@@ -22,61 +22,12 @@ interface BlogPost {
   time?: string;
 }
 
-export function BlogSearch() {
+export function BlogSearch({ blogPosts }: any) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [showStarted, setShowStarted] = useState(true);
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: "Abu Sayed killed during quota protest",
-      content:
-        "content of Abu Sayed killed during quota protest,content of Abu Sayed killed during quota protestcontent of Abu Sayed killed during quota protestcontent of Abu Sayed killed during quota protestcontent of Abu Sayed killed during quota protest",
-      image:
-        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      reactions: 30,
-      time: "19:27",
-    },
-    {
-      id: 2,
-      title: "Student of Begum Rokeya University, ",
-      content:
-        "Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,",
-      image:
-        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      time: "19:27",
-    },
-    {
-      id: 3,
-      title: "Student of Begum Rokeya University, ",
-      content:
-        "Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,",
-      image:
-        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      time: "19:27",
-    },
-    {
-      id: 4,
-      title: "Student of Begum Rokeya University, ",
-      content:
-        "Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,",
-      image:
-        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      time: "19:27",
-    },
-    {
-      id: 5,
-      title: "Student of Begum Rokeya University, ",
-      content:
-        "Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,Content of Student of Begum Rokeya University,",
-      image:
-        "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      time: "19:27",
-    },
-  ];
-
-  const filteredPosts = blogPosts.filter((post) =>
+  const filteredPosts = blogPosts.filter((post: any) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -175,7 +126,7 @@ export function BlogSearch() {
 
                 <div className="float-left mb-8 md:mb-22 md:pt-8 pt-8">
                   <div className="">
-                    {filteredPosts.map((post) => (
+                    {filteredPosts.map((post: any) => (
                       <div key={post.id} className="flex">
                         <div
                           className="bg-[#1F2C33] my-4 rounded-lg w-[300px] shadow-lg overflow-hidden cursor-pointer"
@@ -216,15 +167,15 @@ export function BlogSearch() {
                 </div>
                 {!searchTerm ? (
                   <div className="flex justify-end  flex-wrap">
-                    <div className="bg-[#005C4B] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
+                    <div className="bg-[#2F2F2F] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
                       <div>Top 10</div>
                     </div>
 
-                    <div className="bg-[#005C4B] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
+                    <div className="bg-[#2F2F2F] px-4 py-2 rounded shadow-lg m-2 flex justify-between">
                       <div>Top 20</div>
                     </div>
 
-                    <div className="bg-[#005C4B] px-4 py-2 rounded m-2 shadow-lg flex justify-between">
+                    <div className="bg-[#2F2F2F] px-4 py-2 rounded m-2 shadow-lg flex justify-between">
                       <div>All</div>
                     </div>
                   </div>
